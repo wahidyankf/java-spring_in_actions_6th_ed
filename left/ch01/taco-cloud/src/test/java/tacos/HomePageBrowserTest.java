@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.web.server.LocalServerPort;
 
-@SpringBootTest(webEnvironment=WebEnvironment.RANDOM_PORT)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 public class HomePageBrowserTest {
 
   @LocalServerPort
@@ -23,7 +23,7 @@ public class HomePageBrowserTest {
     browser = new HtmlUnitDriver();
 
     browser.manage().timeouts()
-          .implicitlyWait(10, TimeUnit.SECONDS);
+        .implicitlyWait(10, TimeUnit.SECONDS);
   }
 
   @AfterAll
@@ -43,9 +43,8 @@ public class HomePageBrowserTest {
     Assertions.assertEquals("Welcome to...", h1Text);
 
     String imgSrc = browser.findElementByTagName("img")
-                                              .getAttribute("src");
+        .getAttribute("src");
     Assertions.assertEquals(homePage + "/images/TacoCloud.png", imgSrc);
   }
-
 
 }
